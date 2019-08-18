@@ -13,3 +13,8 @@ chrome extensions允许在指定页面中注入js脚本(content_scripts)，这�
 
 还支持了263企业邮箱：<br/><br/>
 ![preview](capture263.png)
+
+### 第三方库
+[Micromodal](https://github.com/ghosh/Micromodal)
+[toastr](https://github.com/CodeSeven/toastr)
+[js-xlsx](https://github.com/SheetJS/js-xlsx)
