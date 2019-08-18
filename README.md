@@ -15,6 +15,6 @@ chrome extensions允许在指定页面中注入js脚本(content_scripts)，这�
 ![preview](capture263.png)
 
 ### 第三方库
-[Micromodal](https://github.com/ghosh/Micromodal)
-[toastr](https://github.com/CodeSeven/toastr)
+[Micromodal](https://github.com/ghosh/Micromodal)<br/>
+[toastr](https://github.com/CodeSeven/toastr)<br/>
 [js-xlsx](https://github.com/SheetJS/js-xlsx)
