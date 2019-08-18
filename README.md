@@ -8,8 +8,11 @@ a chrome extension for sending monthly salary pay-stub emails
 chrome extensions允许在指定页面中注入js脚本(content_scripts)，这些脚本可以修改”宿主“页面的UI，加入新的业务逻辑等等。与此同时，content_scripts发起网络请求时，可以共享宿主的cookie等信息。也就是说，我们写邮件插件，模拟发起post请求时，chrome会自动在URL请求中塞入Cookie等header信息。
 
 ### 效果
-目前可以支持QQ邮箱群发支持：
+目前可以支持QQ邮箱群发支持：<br/>
 ![preview](captureQQ.png)
 
-还支持了263企业邮箱：
+还支持了263企业邮箱：<br/>
 ![preview](capture263.png)
+
+邮件内容：<br/>
+![preview](captureInbox.png)
