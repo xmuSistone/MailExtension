@@ -11,8 +11,15 @@ chrome extensions允许在指定页面中注入js脚本(content_scripts)，这�
 目前可以支持QQ邮箱群发支持：<br/><br/>
 ![preview](captureQQ.png)
 
-还支持263企业邮箱：<br/><br/>
+支持163邮箱：<br/><br/>
+![preview](163.png)
+
+支持126邮箱：<br/><br/>
+![preview](126.png)
+
+支持263企业邮箱：<br/><br/>
 ![preview](capture263.png)
+
 
 ### 第三方库
 [Micromodal](https://github.com/ghosh/Micromodal)<br/>
