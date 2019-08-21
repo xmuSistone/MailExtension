@@ -38,6 +38,24 @@
     },
     {
       "matches": [
+        "https://mail.126.com/*",
+        "https://mail.163.com/*"
+      ],
+      "js": [
+        "js/thirdparty/jquery-1.10.2.js",
+        "js/thirdparty/xlsx.full.min.js",
+        "js/thirdparty/toastr.js",
+        "js/thirdparty/micromodal.min.js",
+        "js/inject-163-mail.js"
+      ],
+      "css": [
+        "css/toastr.scss",
+        "css/micromodal.css"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
         "https://mail.263.net/*"
       ],
       "js": [
@@ -67,7 +85,11 @@
     "https://mail.qq.com/",
     "http://mail.qq.com/",
     "https://mail.263.net/",
-    "http://mail.263.net/"
+    "http://mail.263.net/",
+    "https://mail.163.com/",
+    "http://mail.163.com/",
+    "https://mail.126.com/",
+    "http://mail.126.com/"
   ],
   "web_accessible_resources": [
     "img/icon_white.png",
