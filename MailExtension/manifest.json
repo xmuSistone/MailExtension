@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "工资条助手",
   "version": "1.0.0",
-  "description": "QQ邮箱、263邮箱 - 批量工资条插件",
+  "description": "QQ邮箱、163(126)邮箱、263企业邮箱 - 批量工资条插件",
   "icons": {
     "16": "img/icon_16.png",
     "48": "img/icon_48.png",
