@@ -1,4 +1,5 @@
 // 全局的邮箱地址URL
+let globalSubject = '您的工资条请查收'
 let globalUrl263 = undefined
 let globalUrlQq = undefined
 let globalUrl163 = undefined
@@ -8,7 +9,13 @@ let globalUrl126 = undefined
  * 接收消息，获取Cookie, 然后回传
  */
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.cmd.startsWith('prepare')) {
+    if (request.cmd === "setSubject") {
+        let newSubject = request.newSubject
+        globalSubject = newSubject
+        sendResponse('0', request, sender)
+    } else if (request.cmd === "getSubject") {
+        sendResponse(`${globalSubject}`, request, sender)
+    } else if (request.cmd.startsWith('prepare')) {
         refreshMailTabUrl()
         sendResponse('1', request, sender)
     } else if (request.cmd === "tabUrl-qq") {

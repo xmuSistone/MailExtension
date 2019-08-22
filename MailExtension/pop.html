@@ -3,14 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Pop</title>
+
+    <style type="text/css">
+        strong {
+            color: #333333;
+            padding-left: 2px;
+            font-size: 14px
+        }
+
+        input {
+            height: 22px;
+            width: 170px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 1px solid #d0d0d0;
+            border-radius: 13px;
+            outline: none;
+            background-color: white;
+        }
+
+        input::-webkit-input-placeholder{
+            color:#dddddd;
+        }
+
+        button {
+            height: 30px;
+            width: 30px;
+            font-size: 9px;
+            padding: 0px;
+            background-color: #f12b8d;
+            outline: none;
+            color: white;
+            border-radius: 15px;
+        }
+
+        a {
+            background-image: -webkit-linear-gradient(left top, #f651a3, #f12b8d);
+            color: white;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            font-size: 13px;
+            border-radius: 13px;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
-<body style="width: 90px; text-align: center; padding-top: 5px; padding-bottom: 5px">
-<div>
-    <a href="https://mail.163.com" target="_blank">163邮箱</a><br/><br/>
-    <a href="https://mail.126.com" target="_blank">126邮箱</a><br/><br/>
-    <a href="https://mail.qq.com" target="_blank">QQ邮箱</a><br/><br/>
-    <a href="http://mail.263.com" target="_blank">263企业邮箱</a><br/><br/>
-    <a href="https://github.com/xmuSistone" target="_blank">About Me</a>
-</div>
+<body style="width: 230px; padding-top: 5px; padding-bottom: 5px">
+    <div>
+        <strong>邮件主题设置</strong>
+        <div style="margin-top: 5px">
+            <input id="subject_input" type="text" placeholder="您的工资条请查收"/>
+            <button id="subject_confirm_btn">ok</button>
+        </div>
+    </div>
+    <div style="margin-top: 10px">
+        <strong>相关链接</strong>
+        <br/>
+        <div style="margin-top: 10px">
+            <a style="padding-left: 12px; padding-right: 12px" href="https://mail.163.com" target="_blank">163邮箱</a>
+            <a style="padding-left: 12px; padding-right: 12px" href="https://mail.126.com" target="_blank">126邮箱</a>
+            <a style="padding-left: 12px; padding-right: 12px" href="https://mail.qq.com" target="_blank">QQ邮箱</a>
+        </div>
+        <div style="margin-top: 10px">
+            <a style="padding-left: 21px; padding-right: 21px" href="http://mail.263.com" target="_blank">263企业邮箱</a>
+            <a style="padding-left: 21px; padding-right: 21px" href="https://github.com/xmuSistone" target="_blank">About Me</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/pop.js"></script>
 </body>
 </html>
