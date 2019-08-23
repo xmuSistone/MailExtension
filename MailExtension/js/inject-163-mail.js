@@ -187,16 +187,15 @@ function parseExcel(sheet) {
 
     if (titleList.length > 0 && taskList.length > 0) {
         // 获取地址栏参数usr和sid
-
         let cmdStr = globalIs163 ? 'tabUrl-163' : "tabUrl-126"
         chrome.runtime.sendMessage({cmd: cmdStr}, function (response) {
-            let tabUrlAddress = response;
+            let tabUrlAddress = response.tabUrl;
             let sid = tabUrlAddress.match(/(sid=[0-9a-zA-Z_-]+)/g);
-            console.log('xxxxx tabUrl=', tabUrlAddress)
             if (sid && sid.length > 0) {
                 // 批量发送邮件
                 globalTaskList = taskList
                 globalTitleList = titleList
+                globalSubject = response.subject
                 updateNameIndex(titleList)
                 globalSid = sid[0]
 
@@ -211,6 +210,7 @@ let globalTitleList = []
 let globalTaskList = []
 let globalSid = ''
 let globalIs163 = false
+let globalSubject = ""
 
 
 /**
@@ -309,7 +309,7 @@ function doSendMail(index) {
                 </array>
                 <array name="cc"/>
                 <array name="bcc"/>
-                <string name="subject">您的xxx请查收</string>
+                <string name="subject">${globalSubject}</string>
                 <boolean name="isHtml">true</boolean>
                 <string name="content">
                     ${encodedMailContent}

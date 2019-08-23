@@ -6,26 +6,38 @@ let globalUrl163 = undefined
 let globalUrl126 = undefined
 
 /**
- * 接收消息，获取Cookie, 然后回传
+ * 接收消息, 然后回传tab地址 & 主题设置
  */
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.cmd === "setSubject") {
         let newSubject = request.newSubject
         globalSubject = newSubject
         sendResponse('0', request, sender)
+
+        // 主题持久化到缓存
+        chrome.storage.local.set({globalSubject: newSubject});
     } else if (request.cmd === "getSubject") {
         sendResponse(`${globalSubject}`, request, sender)
     } else if (request.cmd.startsWith('prepare')) {
         refreshMailTabUrl()
         sendResponse('1', request, sender)
     } else if (request.cmd === "tabUrl-qq") {
-        sendResponse(`${globalUrlQq}`, request, sender)
+        let response = {}
+        response.tabUrl = globalUrlQq
+        response.subject = globalSubject
+        sendResponse(response, request, sender)
     } else if (request.cmd === "tabUrl-263") {
         sendResponse(`${globalUrl263}`, request, sender)
     } else if (request.cmd === "tabUrl-163") {
-        sendResponse(`${globalUrl163}`, request, sender)
+        let response = {}
+        response.tabUrl = globalUrl163
+        response.subject = globalSubject
+        sendResponse(response, request, sender)
     } else if (request.cmd === "tabUrl-126") {
-        sendResponse(`${globalUrl126}`, request, sender)
+        let response = {}
+        response.tabUrl = globalUrl126
+        response.subject = globalSubject
+        sendResponse(response, request, sender)
     } else {
         sendResponse('0', request, sender);
     }
@@ -48,5 +60,16 @@ function refreshMailTabUrl() {
     })
 }
 
+/**
+ * 一上来就从缓存中读取主题设置
+ */
+chrome.storage.local.get('globalSubject', function(result) {
+    if (result && result.globalSubject) {
+        globalSubject = result.globalSubject
+    }
+});
+
 // 启动时就检查下邮箱的URL地址
 refreshMailTabUrl()
+
+console.log('xxxx 到此一游')

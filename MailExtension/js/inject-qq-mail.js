@@ -178,13 +178,14 @@ function parseExcel(sheet) {
     if (titleList.length > 0 && taskList.length > 0) {
         // 获取地址栏参数usr和sid
         chrome.runtime.sendMessage({cmd: 'tabUrl-qq'}, function (response) {
-            let tabUrlAddress = response;
+            let tabUrlAddress = response.tabUrl;
             let sid = tabUrlAddress.match(/(sid=[0-9a-zA-Z_-]+)/g);
 
             if (sid && sid.length > 0) {
                 // 批量发送邮件
                 globalTaskList = taskList
                 globalTitleList = titleList
+                globalSubject = response.subject
                 updateNameIndex(titleList)
                 globalSid = sid[0]
 
@@ -198,6 +199,7 @@ let nameIndex = 0
 let globalTitleList = []
 let globalTaskList = []
 let globalSid = ''
+let globalSubject = ''
 
 /**
  * title中包含名字的index
@@ -279,7 +281,7 @@ function doSendMail(index) {
     data.append('to', `${taskItem[nameIndex].w}<${emailAddr.w}>`);
 
     // 3.3 主题
-    data.append('subject', '您的工资条请查收');
+    data.append('subject', globalSubject);
 
     // 3.4 邮件内容Html
     data.append('content__html', mailContent);
