@@ -162,7 +162,7 @@ function parseExcel(sheet) {
     if (titleList.length > 0 && taskList.length > 0) {
         // 获取地址栏参数usr和sid
         chrome.runtime.sendMessage({cmd: 'tabUrl-263'}, function (response) {
-            let tabUrlAddress = response;
+            let tabUrlAddress = response.tabUrl;
             let usr = tabUrlAddress.match(/(usr=[0-9a-zA-Z]+@mistinechina.com)/g);
             let sid = tabUrlAddress.match(/(sid=[0-9a-zA-Z]+)/g);
 
@@ -170,6 +170,7 @@ function parseExcel(sheet) {
                 // 批量发送邮件
                 globalTaskList = taskList
                 globalTitleList = titleList
+                globalSubject = response.subject
                 updateNameIndex(titleList)
                 globalUsr = usr[0]
                 globalSid = sid[0]
@@ -183,6 +184,7 @@ function parseExcel(sheet) {
 let nameIndex = 0
 let globalTitleList = []
 let globalTaskList = []
+let globalSubject = ''
 let globalUsr = ''
 let globalSid = ''
 
@@ -268,7 +270,7 @@ function doSendMail(index) {
     data.append('tos', `${taskItem[nameIndex].w}<${emailAddr.w}>`);
 
     // 3.3 主题
-    data.append('subject', '您的工资条请查收');
+    data.append('subject', globalSubject);
 
     // 3.4 邮件内容Html
     data.append('textInner', mailContent);

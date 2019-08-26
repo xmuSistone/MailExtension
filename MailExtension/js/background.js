@@ -27,7 +27,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         response.subject = globalSubject
         sendResponse(response, request, sender)
     } else if (request.cmd === "tabUrl-263") {
-        sendResponse(`${globalUrl263}`, request, sender)
+        let response = {}
+        response.tabUrl = globalUrl263
+        response.subject = globalSubject
+        sendResponse(response, request, sender)
     } else if (request.cmd === "tabUrl-163") {
         let response = {}
         response.tabUrl = globalUrl163
