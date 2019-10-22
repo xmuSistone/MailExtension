@@ -60,6 +60,14 @@ function injectSalaryButton() {
 }
 
 /**
+ * 工资条模板跳转链接
+ */
+function onTemplateLinkClick() {
+    let salaryTemplateUrl = chrome.runtime.getURL('../res/salary-template.xls');
+    window.location.href = salaryTemplateUrl;
+}
+
+/**
  * 注入对话框
  */
 function injectDialogModal() {
@@ -83,8 +91,7 @@ function injectDialogModal() {
 
                 // 模板下载链接
                 let templateHref = document.getElementById("salary-template-href")
-                let salaryTemplateUrl = chrome.runtime.getURL('../res/salary-template.xls')
-                templateHref.setAttribute("href", salaryTemplateUrl)
+                templateHref.onclick = onTemplateLinkClick
 
                 // 一键发送按钮点击事件
                 let sendMailBtn = document.getElementById("salary-dialog-confirm-btn")
