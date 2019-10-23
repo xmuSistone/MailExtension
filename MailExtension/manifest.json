@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "工资条助手",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "QQ邮箱、163(126)邮箱、263企业邮箱 - 批量工资条插件",
   "icons": {
     "16": "img/icon_16.png",
@@ -73,14 +73,7 @@
     }
   ],
   "permissions": [
-    "cookies",
-    "webRequest",
-    "debugger",
-    "contextMenus",
     "tabs",
-    "notifications",
-    "webRequest",
-    "webRequestBlocking",
     "storage",
     "https://mail.qq.com/",
     "http://mail.qq.com/",
